@@ -1,0 +1,34 @@
+{
+  "skill": "cumcm-paper-delivery",
+  "profile": "cumcm-from-zero",
+  "required": [
+    "cumcm-competition-engine",
+    "math-modeling",
+    "建模手",
+    "编程手",
+    "论文手",
+    "xlsx",
+    "docx",
+    "pdf",
+    "nature-figure"
+  ],
+  "recommended": [
+    "paper-search",
+    "documents:documents",
+    "pdf:pdf"
+  ],
+  "conditional": [
+    "spreadsheets:Spreadsheets",
+    "nature-academic-search"
+  ],
+  "excluded_from_default_chain": [
+    "imagegen",
+    "nature-writing",
+    "nature-polishing",
+    "nature-citation",
+    "nature-reviewer",
+    "nature-paper2ppt",
+    "presentations:Presentations"
+  ]
+}
+
