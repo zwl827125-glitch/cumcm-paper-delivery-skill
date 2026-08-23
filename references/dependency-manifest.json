@@ -1,34 +1,43 @@
 {
   "skill": "cumcm-paper-delivery",
-  "profile": "cumcm-from-zero",
-  "required": [
+  "profile": "cumcm-from-zero-public-bundle",
+  "bundled_required": [
     "cumcm-competition-engine",
     "math-modeling",
-    "建模手",
-    "编程手",
-    "论文手",
-    "xlsx",
-    "docx",
-    "pdf",
-    "nature-figure"
-  ],
-  "recommended": [
+    "cumcm-modeler",
+    "cumcm-solver",
+    "cumcm-writer",
     "paper-search",
-    "documents:documents",
-    "pdf:pdf"
+    "modeling-research-figure-skill",
+    "nature-figure",
+    "nature-shared"
   ],
-  "conditional": [
-    "spreadsheets:Spreadsheets",
+  "bundled_optional": [
     "nature-academic-search"
   ],
-  "excluded_from_default_chain": [
-    "imagegen",
-    "nature-writing",
-    "nature-polishing",
-    "nature-citation",
-    "nature-reviewer",
-    "nature-paper2ppt",
-    "presentations:Presentations"
+  "codex_optional": [
+    "documents:documents",
+    "pdf:pdf",
+    "spreadsheets:Spreadsheets"
+  ],
+  "standalone_runtime": {
+    "windows_office": [
+      "Microsoft Word COM",
+      "Microsoft Excel COM"
+    ],
+    "cross_platform_generation": [
+      "Pandoc",
+      "Python 3",
+      "requirements.txt"
+    ],
+    "fallback": [
+      "LibreOffice"
+    ]
+  },
+  "not_redistributed": [
+    "math-modeling/tools/docx",
+    "math-modeling/tools/pdf",
+    "math-modeling/tools/xlsx",
+    "nature-figure/assets/figures4papers"
   ]
 }
-

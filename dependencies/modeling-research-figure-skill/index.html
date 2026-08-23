@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数模与科研绘图图库</title>
+  <style>
+    :root { --ink:#17212b; --muted:#62707c; --line:#dfe6eb; --paper:#fff; --wash:#f3f6f8; --blue:#165a9f; --green:#18794e; --amber:#946200; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--wash); font-family:Inter,"Microsoft YaHei","PingFang SC",Arial,sans-serif; line-height:1.55; }
+    main { width:min(1500px,calc(100% - 36px)); margin:auto; padding:42px 0 72px; }
+    header,section,details { background:var(--paper); border:1px solid var(--line); border-radius:18px; }
+    header { padding:34px 38px; }
+    section,details { margin-top:22px; padding:28px; }
+    h1 { margin:0 0 10px; font-size:clamp(30px,4vw,52px); line-height:1.12; }
+    h2 { margin:0 0 14px; }
+    p { color:var(--muted); }
+    .stats { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .stat { padding:9px 13px; background:#edf4fa; border-radius:999px; font-weight:700; color:#24465f; }
+    .controls { display:grid; grid-template-columns:2fr 1fr 1fr; gap:10px; margin:18px 0 22px; }
+    input,select { width:100%; padding:11px 12px; border:1px solid #cfd8de; border-radius:10px; background:white; color:var(--ink); font:inherit; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .card { border:1px solid var(--line); border-radius:14px; overflow:hidden; background:white; align-self:start; }
+    .card[hidden] { display:none; }
+    .image-link { display:block; background:white; }
+    .card img { display:block; width:100%; height:310px; object-fit:contain; }
+    .card.auxiliary img { height:260px; }
+    .body { padding:14px 15px 16px; border-top:1px solid var(--line); }
+    .meta { display:flex; justify-content:space-between; gap:10px; align-items:center; font-size:12px; color:var(--muted); }
+    .meta b { color:var(--green); background:#e6f5ed; border-radius:999px; padding:3px 8px; }
+    .meta code { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    h3 { margin:10px 0 3px; font-size:17px; }
+    .body p { margin:0 0 9px; font-size:13px; }
+    .tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .tags span { padding:3px 7px; border-radius:999px; background:#eef2f4; color:#53616d; font-size:11px; }
+    .links { margin-top:11px; font-size:13px; }
+    a { color:var(--blue); text-decoration:none; font-weight:650; }
+    summary { cursor:pointer; font-size:20px; font-weight:750; }
+    .notice { border-left:4px solid #d99a27; background:#fff8e8; padding:12px 14px; color:#624b16; border-radius:8px; }
+    footer { color:var(--muted); text-align:center; padding:24px 0 0; font-size:13px; }
+    @media(max-width:1050px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:700px) { main { width:min(100% - 18px,1500px); padding-top:12px; } header,section,details { padding:20px; } .controls,.grid { grid-template-columns:1fr; } .card img { height:auto; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>数模与科研绘图图库</h1>
+    <p>用于 CUMCM、MCM/ICM 和科研论文的静态参考、视觉复现与图片润色。复用视觉语法，不从像素猜测隐藏数据。</p>
+    <div class="stats">
+      <span class="stat">35 张正式图库图</span>
+      <span class="stat">16 个可运行模板</span>
+      <span class="stat">20 个 SVG</span>
+      <span class="stat">55 张唯一 PNG 资产</span>
+      <span class="stat">40+ 图型与构图模式</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>正式图库</h2>
+    <p class="notice">静态参考同样可以用于高保真视觉重建；只有标记为“可运行模板”的条目附带现成 Python 生成器。任何科研数值都必须来自真实分析。</p>
+    <div class="controls">
+      <input id="query" type="search" placeholder="搜索：optimization、sensitivity、热图、imaging…">
+      <select id="collection"><option value="">全部集合</option><option value="modeling-template">可运行数模模板</option><option value="modeling-example">数模静态示例</option><option value="chart-atlas">科研图型图谱</option><option value="multi-panel-blueprint">科研多面板蓝图</option></select>
+      <select id="status"><option value="">全部状态</option><option value="runnable">可运行模板</option><option value="static-reference">静态参考</option></select>
+    </div>
+    <div id="formal-grid" class="grid">
+<article class="card" data-search="modeling-3d-parametric 彩色 3d 参数曲线 color-coded 3d parametric curve modeling-template runnable 3d parametric scatter curve continuous-color trigonometric" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-3d-parametric.png"><img src="assets/previews/modeling-templates/math-repro-3d-parametric.png" alt="彩色 3D 参数曲线"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-3d-parametric</code></div>
+        <h3>彩色 3D 参数曲线</h3>
+        <p>Color-coded 3D parametric curve</p>
+        <div class="tags"><span>3d</span><span>parametric</span><span>scatter</span><span>curve</span><span>continuous-color</span><span>trigonometric</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-3d-parametric.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-3d-parametric.svg">SVG</a> · <a href="scripts/reproduce_3d_probability.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-probability-surface-contour 概率曲面与等高图 probability surface and contour map modeling-template runnable surface contour probability optimization two-panel colorbar" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-probability-surface-contour.png"><img src="assets/previews/modeling-templates/math-repro-probability-surface-contour.png" alt="概率曲面与等高图"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-probability-surface-contour</code></div>
+        <h3>概率曲面与等高图</h3>
+        <p>Probability surface and contour map</p>
+        <div class="tags"><span>surface</span><span>contour</span><span>probability</span><span>optimization</span><span>two-panel</span><span>colorbar</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-probability-surface-contour.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-probability-surface-contour.svg">SVG</a> · <a href="scripts/reproduce_3d_probability.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-probability-gradient 概率梯度矢量场 probability gradient vector field modeling-template runnable quiver gradient heatmap dual-colorbar vector-field" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-probability-gradient.png"><img src="assets/previews/modeling-templates/math-repro-probability-gradient.png" alt="概率梯度矢量场"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-probability-gradient</code></div>
+        <h3>概率梯度矢量场</h3>
+        <p>Probability gradient vector field</p>
+        <div class="tags"><span>quiver</span><span>gradient</span><span>heatmap</span><span>dual-colorbar</span><span>vector-field</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-probability-gradient.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-probability-gradient.svg">SVG</a> · <a href="scripts/reproduce_3d_probability.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-monte-carlo-kde monte carlo、kde 与命中判定 monte carlo density and hit classification modeling-template runnable monte-carlo kde roi hit-mask simulation scatter" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-monte-carlo-kde.png"><img src="assets/previews/modeling-templates/math-repro-monte-carlo-kde.png" alt="Monte Carlo、KDE 与命中判定"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-monte-carlo-kde</code></div>
+        <h3>Monte Carlo、KDE 与命中判定</h3>
+        <p>Monte Carlo density and hit classification</p>
+        <div class="tags"><span>monte-carlo</span><span>kde</span><span>roi</span><span>hit-mask</span><span>simulation</span><span>scatter</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-monte-carlo-kde.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-monte-carlo-kde.svg">SVG</a> · <a href="scripts/reproduce_simulation_sensitivity.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-truncated-optimization 截尾分布与一维寻优 truncated distribution and one-dimensional optimization modeling-template runnable truncated-normal density feasible-region optimum response-curve" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-truncated-optimization.png"><img src="assets/previews/modeling-templates/math-repro-truncated-optimization.png" alt="截尾分布与一维寻优"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-truncated-optimization</code></div>
+        <h3>截尾分布与一维寻优</h3>
+        <p>Truncated distribution and one-dimensional optimization</p>
+        <div class="tags"><span>truncated-normal</span><span>density</span><span>feasible-region</span><span>optimum</span><span>response-curve</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-truncated-optimization.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-truncated-optimization.svg">SVG</a> · <a href="scripts/reproduce_simulation_sensitivity.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-tornado-sensitivity tornado 参数灵敏度 tornado parameter sensitivity modeling-template runnable tornado sensitivity baseline parameter-ranking bar" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-tornado.png"><img src="assets/previews/modeling-templates/math-repro-tornado.png" alt="Tornado 参数灵敏度"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-tornado-sensitivity</code></div>
+        <h3>Tornado 参数灵敏度</h3>
+        <p>Tornado parameter sensitivity</p>
+        <div class="tags"><span>tornado</span><span>sensitivity</span><span>baseline</span><span>parameter-ranking</span><span>bar</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-tornado.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-tornado.svg">SVG</a> · <a href="scripts/reproduce_simulation_sensitivity.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-distance-ecdf violin、box、strip 与 ecdf grouped distributions and empirical cdf modeling-template runnable violin boxplot strip ecdf group-comparison" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-distance-ecdf.png"><img src="assets/previews/modeling-templates/math-repro-distance-ecdf.png" alt="Violin、Box、Strip 与 ECDF"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-distance-ecdf</code></div>
+        <h3>Violin、Box、Strip 与 ECDF</h3>
+        <p>Grouped distributions and empirical CDF</p>
+        <div class="tags"><span>violin</span><span>boxplot</span><span>strip</span><span>ecdf</span><span>group-comparison</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-distance-ecdf.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-distance-ecdf.svg">SVG</a> · <a href="scripts/reproduce_simulation_sensitivity.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-correlation-importance 相关矩阵与参数重要性 correlation matrix and parameter importance modeling-template runnable correlation triangular-heatmap importance barh ranking" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-correlation-importance.png"><img src="assets/previews/modeling-templates/math-repro-correlation-importance.png" alt="相关矩阵与参数重要性"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-correlation-importance</code></div>
+        <h3>相关矩阵与参数重要性</h3>
+        <p>Correlation matrix and parameter importance</p>
+        <div class="tags"><span>correlation</span><span>triangular-heatmap</span><span>importance</span><span>barh</span><span>ranking</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-correlation-importance.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-correlation-importance.svg">SVG</a> · <a href="scripts/reproduce_simulation_sensitivity.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-hexbin-kde hexbin 与 kde 命中叠加 hexbin density and kde hit overlay modeling-template runnable hexbin kde log-count density hit-overlay" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-hexbin-kde.png"><img src="assets/previews/modeling-templates/math-repro-hexbin-kde.png" alt="Hexbin 与 KDE 命中叠加"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-hexbin-kde</code></div>
+        <h3>Hexbin 与 KDE 命中叠加</h3>
+        <p>Hexbin density and KDE hit overlay</p>
+        <div class="tags"><span>hexbin</span><span>kde</span><span>log-count</span><span>density</span><span>hit-overlay</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-hexbin-kde.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-hexbin-kde.svg">SVG</a> · <a href="scripts/reproduce_simulation_sensitivity.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-convergence 数值积分收敛 numerical integration convergence modeling-template runnable convergence relative-error threshold grid-refinement log-scale" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-convergence.png"><img src="assets/previews/modeling-templates/math-repro-convergence.png" alt="数值积分收敛"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-convergence</code></div>
+        <h3>数值积分收敛</h3>
+        <p>Numerical integration convergence</p>
+        <div class="tags"><span>convergence</span><span>relative-error</span><span>threshold</span><span>grid-refinement</span><span>log-scale</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-convergence.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-convergence.svg">SVG</a> · <a href="scripts/reproduce_diagnostics_optimization.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-bootstrap bootstrap 稳健性 bootstrap robustness validation modeling-template runnable bootstrap boxplot jitter reference-line uncertainty" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-bootstrap.png"><img src="assets/previews/modeling-templates/math-repro-bootstrap.png" alt="Bootstrap 稳健性"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-bootstrap</code></div>
+        <h3>Bootstrap 稳健性</h3>
+        <p>Bootstrap robustness validation</p>
+        <div class="tags"><span>bootstrap</span><span>boxplot</span><span>jitter</span><span>reference-line</span><span>uncertainty</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-bootstrap.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-bootstrap.svg">SVG</a> · <a href="scripts/reproduce_diagnostics_optimization.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-regression-fit 非线性拟合与 95% ci nonlinear regression with 95% confidence bands modeling-template runnable nonlinear-fit confidence-band regression uncertainty scatter" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-regression-fit.png"><img src="assets/previews/modeling-templates/math-repro-regression-fit.png" alt="非线性拟合与 95% CI"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-regression-fit</code></div>
+        <h3>非线性拟合与 95% CI</h3>
+        <p>Nonlinear regression with 95% confidence bands</p>
+        <div class="tags"><span>nonlinear-fit</span><span>confidence-band</span><span>regression</span><span>uncertainty</span><span>scatter</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-regression-fit.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-regression-fit.svg">SVG</a> · <a href="scripts/reproduce_diagnostics_optimization.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-regression-density 非线性拟合与联合密度 nonlinear fit and joint-density scatter modeling-template runnable nonlinear-fit joint-density colored-scatter kde regression" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-regression-length-density.png"><img src="assets/previews/modeling-templates/math-repro-regression-length-density.png" alt="非线性拟合与联合密度"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-regression-density</code></div>
+        <h3>非线性拟合与联合密度</h3>
+        <p>Nonlinear fit and joint-density scatter</p>
+        <div class="tags"><span>nonlinear-fit</span><span>joint-density</span><span>colored-scatter</span><span>kde</span><span>regression</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-regression-length-density.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-regression-length-density.svg">SVG</a> · <a href="scripts/reproduce_diagnostics_optimization.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-residual-qq 残差与 q–q 诊断 residual and q-q diagnostics modeling-template runnable residual qq-plot normality heteroscedasticity diagnostics" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-residual-qq.png"><img src="assets/previews/modeling-templates/math-repro-residual-qq.png" alt="残差与 Q–Q 诊断"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-residual-qq</code></div>
+        <h3>残差与 Q–Q 诊断</h3>
+        <p>Residual and Q-Q diagnostics</p>
+        <div class="tags"><span>residual</span><span>qq-plot</span><span>normality</span><span>heteroscedasticity</span><span>diagnostics</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-residual-qq.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-residual-qq.svg">SVG</a> · <a href="scripts/reproduce_diagnostics_optimization.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-model-radar 多维模型雷达比较 multi-model radar comparison modeling-template runnable radar benchmark normalized-metrics multi-model" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-model-radar.png"><img src="assets/previews/modeling-templates/math-repro-model-radar.png" alt="多维模型雷达比较"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-model-radar</code></div>
+        <h3>多维模型雷达比较</h3>
+        <p>Multi-model radar comparison</p>
+        <div class="tags"><span>radar</span><span>benchmark</span><span>normalized-metrics</span><span>multi-model</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-model-radar.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-model-radar.svg">SVG</a> · <a href="scripts/reproduce_diagnostics_optimization.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-optimization-landscape 二维优化等高地形 two-parameter optimization landscape modeling-template runnable contourf parameter-space constraints optimum neighborhood" data-collection="modeling-template" data-status="runnable">
+      <a class="image-link" href="assets/previews/modeling-templates/math-repro-optimization-landscape.png"><img src="assets/previews/modeling-templates/math-repro-optimization-landscape.png" alt="二维优化等高地形"></a>
+      <div class="body">
+        <div class="meta"><b>可运行模板</b><code>modeling-optimization-landscape</code></div>
+        <h3>二维优化等高地形</h3>
+        <p>Two-parameter optimization landscape</p>
+        <div class="tags"><span>contourf</span><span>parameter-space</span><span>constraints</span><span>optimum</span><span>neighborhood</span></div>
+        <div class="links"><a href="assets/previews/modeling-templates/math-repro-optimization-landscape.png">PNG</a> · <a href="assets/vectors/modeling-templates/math-repro-optimization-landscape.svg">SVG</a> · <a href="scripts/reproduce_diagnostics_optimization.py">代码</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-example-trajectory-geometry 轨迹与几何遮蔽示意 trajectory and geometric occlusion example modeling-example static-reference trajectory geometry occlusion mechanism two-panel" data-collection="modeling-example" data-status="static-reference">
+      <a class="image-link" href="assets/previews/modeling-examples/math-a-1.png"><img src="assets/previews/modeling-examples/math-a-1.png" alt="轨迹与几何遮蔽示意"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>modeling-example-trajectory-geometry</code></div>
+        <h3>轨迹与几何遮蔽示意</h3>
+        <p>Trajectory and geometric occlusion example</p>
+        <div class="tags"><span>trajectory</span><span>geometry</span><span>occlusion</span><span>mechanism</span><span>two-panel</span></div>
+        <div class="links"><a href="assets/previews/modeling-examples/math-a-1.png">PNG</a> · <a href="assets/vectors/modeling-examples/math-a-1.svg">SVG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-example-sensitivity-small-multiples 多参数敏感性分析 multi-parameter sensitivity small multiples modeling-example static-reference sensitivity small-multiples optimum competition" data-collection="modeling-example" data-status="static-reference">
+      <a class="image-link" href="assets/previews/modeling-examples/math-a-2.png"><img src="assets/previews/modeling-examples/math-a-2.png" alt="多参数敏感性分析"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>modeling-example-sensitivity-small-multiples</code></div>
+        <h3>多参数敏感性分析</h3>
+        <p>Multi-parameter sensitivity small multiples</p>
+        <div class="tags"><span>sensitivity</span><span>small-multiples</span><span>optimum</span><span>competition</span></div>
+        <div class="links"><a href="assets/previews/modeling-examples/math-a-2.png">PNG</a> · <a href="assets/vectors/modeling-examples/math-a-2.svg">SVG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-example-mechanism-trends 多曲线机理趋势与局部放大 mechanistic trends with local zoom modeling-example static-reference line periodic-response inset mechanism local-zoom" data-collection="modeling-example" data-status="static-reference">
+      <a class="image-link" href="assets/previews/modeling-examples/math-b-1.png"><img src="assets/previews/modeling-examples/math-b-1.png" alt="多曲线机理趋势与局部放大"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>modeling-example-mechanism-trends</code></div>
+        <h3>多曲线机理趋势与局部放大</h3>
+        <p>Mechanistic trends with local zoom</p>
+        <div class="tags"><span>line</span><span>periodic-response</span><span>inset</span><span>mechanism</span><span>local-zoom</span></div>
+        <div class="links"><a href="assets/previews/modeling-examples/math-b-1.png">PNG</a> · <a href="assets/vectors/modeling-examples/math-b-1.svg">SVG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="modeling-example-diagnostic-grid 机理诊断四联图 four-panel mechanism diagnostics modeling-example static-reference spectrum fft log-scale normalized-metric bar four-panel" data-collection="modeling-example" data-status="static-reference">
+      <a class="image-link" href="assets/previews/modeling-examples/math-b-2.png"><img src="assets/previews/modeling-examples/math-b-2.png" alt="机理诊断四联图"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>modeling-example-diagnostic-grid</code></div>
+        <h3>机理诊断四联图</h3>
+        <p>Four-panel mechanism diagnostics</p>
+        <div class="tags"><span>spectrum</span><span>fft</span><span>log-scale</span><span>normalized-metric</span><span>bar</span><span>four-panel</span></div>
+        <div class="links"><a href="assets/previews/modeling-examples/math-b-2.png">PNG</a> · <a href="assets/vectors/modeling-examples/math-b-2.svg">SVG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-bars 柱状图图谱 bar-chart atlas chart-atlas static-reference bar grouped stacked diverging composition" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-bars.png"><img src="assets/previews/chart-atlas/research-atlas-bars.png" alt="柱状图图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-bars</code></div>
+        <h3>柱状图图谱</h3>
+        <p>Bar-chart atlas</p>
+        <div class="tags"><span>bar</span><span>grouped</span><span>stacked</span><span>diverging</span><span>composition</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-bars.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-lines 折线与纵向趋势图谱 line and longitudinal-trend atlas chart-atlas static-reference line ribbon confidence-interval event longitudinal" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-lines.png"><img src="assets/previews/chart-atlas/research-atlas-lines.png" alt="折线与纵向趋势图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-lines</code></div>
+        <h3>折线与纵向趋势图谱</h3>
+        <p>Line and longitudinal-trend atlas</p>
+        <div class="tags"><span>line</span><span>ribbon</span><span>confidence-interval</span><span>event</span><span>longitudinal</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-lines.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-heatmaps 热图图谱 heatmap atlas chart-atlas static-reference heatmap z-score annotation cluster matrix" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-heatmaps.png"><img src="assets/previews/chart-atlas/research-atlas-heatmaps.png" alt="热图图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-heatmaps</code></div>
+        <h3>热图图谱</h3>
+        <p>Heatmap atlas</p>
+        <div class="tags"><span>heatmap</span><span>z-score</span><span>annotation</span><span>cluster</span><span>matrix</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-heatmaps.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-scatter 散点与气泡图谱 scatter and bubble atlas chart-atlas static-reference scatter bubble regression volcano quadrant" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-scatter.png"><img src="assets/previews/chart-atlas/research-atlas-scatter.png" alt="散点与气泡图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-scatter</code></div>
+        <h3>散点与气泡图谱</h3>
+        <p>Scatter and bubble atlas</p>
+        <div class="tags"><span>scatter</span><span>bubble</span><span>regression</span><span>volcano</span><span>quadrant</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-scatter.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-radar 雷达与极坐标图谱 radar and polar atlas chart-atlas static-reference radar polar-bar directional-density benchmark" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-radar.png"><img src="assets/previews/chart-atlas/research-atlas-radar.png" alt="雷达与极坐标图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-radar</code></div>
+        <h3>雷达与极坐标图谱</h3>
+        <p>Radar and polar atlas</p>
+        <div class="tags"><span>radar</span><span>polar-bar</span><span>directional-density</span><span>benchmark</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-radar.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-distributions 分布图图谱 distribution-plot atlas chart-atlas static-reference histogram violin boxplot ridgeline density" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-distributions.png"><img src="assets/previews/chart-atlas/research-atlas-distributions.png" alt="分布图图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-distributions</code></div>
+        <h3>分布图图谱</h3>
+        <p>Distribution-plot atlas</p>
+        <div class="tags"><span>histogram</span><span>violin</span><span>boxplot</span><span>ridgeline</span><span>density</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-distributions.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-forest forest 与区间图谱 forest and interval atlas chart-atlas static-reference forest effect-size confidence-interval point-range slopegraph" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-forest.png"><img src="assets/previews/chart-atlas/research-atlas-forest.png" alt="Forest 与区间图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-forest</code></div>
+        <h3>Forest 与区间图谱</h3>
+        <p>Forest and interval atlas</p>
+        <div class="tags"><span>forest</span><span>effect-size</span><span>confidence-interval</span><span>point-range</span><span>slopegraph</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-forest.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-area 面积与堆叠趋势图谱 area and stacked-trend atlas chart-atlas static-reference area stacked-share streamgraph cumulative" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-area.png"><img src="assets/previews/chart-atlas/research-atlas-area.png" alt="面积与堆叠趋势图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-area</code></div>
+        <h3>面积与堆叠趋势图谱</h3>
+        <p>Area and stacked-trend atlas</p>
+        <div class="tags"><span>area</span><span>stacked-share</span><span>streamgraph</span><span>cumulative</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-area.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-images 科研图像板图谱 scientific image-plate atlas chart-atlas static-reference microscopy channel merge crop scale-bar dark-panel" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-images.png"><img src="assets/previews/chart-atlas/research-atlas-images.png" alt="科研图像板图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-images</code></div>
+        <h3>科研图像板图谱</h3>
+        <p>Scientific image-plate atlas</p>
+        <div class="tags"><span>microscopy</span><span>channel</span><span>merge</span><span>crop</span><span>scale-bar</span><span>dark-panel</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-images.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-atlas-network 网络与矩阵图谱 network and matrix atlas chart-atlas static-reference bubble-matrix adjacency node-link bipartite interaction" data-collection="chart-atlas" data-status="static-reference">
+      <a class="image-link" href="assets/previews/chart-atlas/research-atlas-network.png"><img src="assets/previews/chart-atlas/research-atlas-network.png" alt="网络与矩阵图谱"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-atlas-network</code></div>
+        <h3>网络与矩阵图谱</h3>
+        <p>Network and matrix atlas</p>
+        <div class="tags"><span>bubble-matrix</span><span>adjacency</span><span>node-link</span><span>bipartite</span><span>interaction</span></div>
+        <div class="links"><a href="assets/previews/chart-atlas/research-atlas-network.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-blueprint-material 材料设计与物理验证复合图 material design and physical-validation composite multi-panel-blueprint static-reference mechanism sem-like release-kinetics rheology correlation composite" data-collection="multi-panel-blueprint" data-status="static-reference">
+      <a class="image-link" href="assets/previews/multi-panel/research-blueprint-material.png"><img src="assets/previews/multi-panel/research-blueprint-material.png" alt="材料设计与物理验证复合图"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-blueprint-material</code></div>
+        <h3>材料设计与物理验证复合图</h3>
+        <p>Material design and physical-validation composite</p>
+        <div class="tags"><span>mechanism</span><span>SEM-like</span><span>release-kinetics</span><span>rheology</span><span>correlation</span><span>composite</span></div>
+        <div class="links"><a href="assets/previews/multi-panel/research-blueprint-material.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-blueprint-imaging 空间滞留与摄取复合图 spatial retention and uptake composite multi-panel-blueprint static-reference microscopy channels zoom depth-profile 3d-heatmap uptake" data-collection="multi-panel-blueprint" data-status="static-reference">
+      <a class="image-link" href="assets/previews/multi-panel/research-blueprint-imaging.png"><img src="assets/previews/multi-panel/research-blueprint-imaging.png" alt="空间滞留与摄取复合图"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-blueprint-imaging</code></div>
+        <h3>空间滞留与摄取复合图</h3>
+        <p>Spatial retention and uptake composite</p>
+        <div class="tags"><span>microscopy</span><span>channels</span><span>zoom</span><span>depth-profile</span><span>3d-heatmap</span><span>uptake</span></div>
+        <div class="links"><a href="assets/previews/multi-panel/research-blueprint-imaging.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-blueprint-clinical 体内疗效与耐受性复合图 in-vivo efficacy and tolerability composite multi-panel-blueprint static-reference timeline longitudinal waterfall forest immune-composition safety" data-collection="multi-panel-blueprint" data-status="static-reference">
+      <a class="image-link" href="assets/previews/multi-panel/research-blueprint-clinical.png"><img src="assets/previews/multi-panel/research-blueprint-clinical.png" alt="体内疗效与耐受性复合图"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-blueprint-clinical</code></div>
+        <h3>体内疗效与耐受性复合图</h3>
+        <p>In-vivo efficacy and tolerability composite</p>
+        <div class="tags"><span>timeline</span><span>longitudinal</span><span>waterfall</span><span>forest</span><span>immune-composition</span><span>safety</span></div>
+        <div class="links"><a href="assets/previews/multi-panel/research-blueprint-clinical.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-blueprint-single-cell 单细胞系统复合图 single-cell systems composite multi-panel-blueprint static-reference umap marker-heatmap pseudotime volcano enrichment ligand-receptor" data-collection="multi-panel-blueprint" data-status="static-reference">
+      <a class="image-link" href="assets/previews/multi-panel/research-blueprint-single-cell.png"><img src="assets/previews/multi-panel/research-blueprint-single-cell.png" alt="单细胞系统复合图"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-blueprint-single-cell</code></div>
+        <h3>单细胞系统复合图</h3>
+        <p>Single-cell systems composite</p>
+        <div class="tags"><span>UMAP</span><span>marker-heatmap</span><span>pseudotime</span><span>volcano</span><span>enrichment</span><span>ligand-receptor</span></div>
+        <div class="links"><a href="assets/previews/multi-panel/research-blueprint-single-cell.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card" data-search="research-blueprint-validation 扰动与机制验证复合图 perturbation and mechanism-validation composite multi-panel-blueprint static-reference perturbation dose-response synergy biodistribution polar safety" data-collection="multi-panel-blueprint" data-status="static-reference">
+      <a class="image-link" href="assets/previews/multi-panel/research-blueprint-validation.png"><img src="assets/previews/multi-panel/research-blueprint-validation.png" alt="扰动与机制验证复合图"></a>
+      <div class="body">
+        <div class="meta"><b>静态参考</b><code>research-blueprint-validation</code></div>
+        <h3>扰动与机制验证复合图</h3>
+        <p>Perturbation and mechanism-validation composite</p>
+        <div class="tags"><span>perturbation</span><span>dose-response</span><span>synergy</span><span>biodistribution</span><span>polar</span><span>safety</span></div>
+        <div class="links"><a href="assets/previews/multi-panel/research-blueprint-validation.png">PNG</a></div>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <details>
+    <summary>11 张原始参考截图</summary>
+    <p>这些是经发布者明确授权随 Skill 公开的重建参考，不属于 35 张正式模板。</p>
+    <div class="grid"><article class="card auxiliary" data-search="source-01-probability-field-page 概率曲面、等高线与梯度场参考页  source-reference source-reference 3d probability surface contour map gradient field" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-01-probability-field-page.png"><img src="assets/source-references/source-01-probability-field-page.png" alt="概率曲面、等高线与梯度场参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-01-probability-field-page</code></div>
+        <h3>概率曲面、等高线与梯度场参考页</h3>
+        <p></p>
+        <div class="tags"><span>3D probability surface</span><span>contour map</span><span>gradient field</span></div>
+        <div class="links"><a href="assets/source-references/source-01-probability-field-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-02-monte-carlo-kde-page monte carlo 密度、kde 与命中判定参考页  source-reference source-reference monte carlo density kde hit and miss samples" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-02-monte-carlo-kde-page.png"><img src="assets/source-references/source-02-monte-carlo-kde-page.png" alt="Monte Carlo 密度、KDE 与命中判定参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-02-monte-carlo-kde-page</code></div>
+        <h3>Monte Carlo 密度、KDE 与命中判定参考页</h3>
+        <p></p>
+        <div class="tags"><span>Monte Carlo density</span><span>KDE</span><span>hit and miss samples</span></div>
+        <div class="links"><a href="assets/source-references/source-02-monte-carlo-kde-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-03-truncated-depth-optimization-page 截尾深度分布与一维寻优参考页  source-reference source-reference truncated normal distribution one-dimensional optimization" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-03-truncated-depth-optimization-page.png"><img src="assets/source-references/source-03-truncated-depth-optimization-page.png" alt="截尾深度分布与一维寻优参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-03-truncated-depth-optimization-page</code></div>
+        <h3>截尾深度分布与一维寻优参考页</h3>
+        <p></p>
+        <div class="tags"><span>truncated normal distribution</span><span>one-dimensional optimization</span></div>
+        <div class="links"><a href="assets/source-references/source-03-truncated-depth-optimization-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-04-tornado-distance-page tornado 灵敏度与距离分布参考页  source-reference source-reference tornado sensitivity violin and box ecdf" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-04-tornado-distance-page.png"><img src="assets/source-references/source-04-tornado-distance-page.png" alt="Tornado 灵敏度与距离分布参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-04-tornado-distance-page</code></div>
+        <h3>Tornado 灵敏度与距离分布参考页</h3>
+        <p></p>
+        <div class="tags"><span>tornado sensitivity</span><span>violin and box</span><span>ECDF</span></div>
+        <div class="links"><a href="assets/source-references/source-04-tornado-distance-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-05-correlation-hexbin-page 参数相关性与空间密度参考页  source-reference source-reference correlation heatmap importance ranking hexbin kde contours" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-05-correlation-hexbin-page.png"><img src="assets/source-references/source-05-correlation-hexbin-page.png" alt="参数相关性与空间密度参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-05-correlation-hexbin-page</code></div>
+        <h3>参数相关性与空间密度参考页</h3>
+        <p></p>
+        <div class="tags"><span>correlation heatmap</span><span>importance ranking</span><span>hexbin</span><span>KDE contours</span></div>
+        <div class="links"><a href="assets/source-references/source-05-correlation-hexbin-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-06-convergence-bootstrap-page 数值收敛与 bootstrap 参考页  source-reference source-reference grid convergence relative error bootstrap validation" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-06-convergence-bootstrap-page.png"><img src="assets/source-references/source-06-convergence-bootstrap-page.png" alt="数值收敛与 Bootstrap 参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-06-convergence-bootstrap-page</code></div>
+        <h3>数值收敛与 Bootstrap 参考页</h3>
+        <p></p>
+        <div class="tags"><span>grid convergence</span><span>relative error</span><span>bootstrap validation</span></div>
+        <div class="links"><a href="assets/source-references/source-06-convergence-bootstrap-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-07-regression-radar-page 回归诊断与雷达图参考页  source-reference source-reference regression diagnostics residual q-q plot radar comparison" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-07-regression-radar-page.png"><img src="assets/source-references/source-07-regression-radar-page.png" alt="回归诊断与雷达图参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-07-regression-radar-page</code></div>
+        <h3>回归诊断与雷达图参考页</h3>
+        <p></p>
+        <div class="tags"><span>regression diagnostics</span><span>residual</span><span>Q-Q plot</span><span>radar comparison</span></div>
+        <div class="links"><a href="assets/source-references/source-07-regression-radar-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-08-optimization-landscape-page 二维优化景观参考页  source-reference source-reference filled contour feasible region optimum" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-08-optimization-landscape-page.png"><img src="assets/source-references/source-08-optimization-landscape-page.png" alt="二维优化景观参考页"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-08-optimization-landscape-page</code></div>
+        <h3>二维优化景观参考页</h3>
+        <p></p>
+        <div class="tags"><span>filled contour</span><span>feasible region</span><span>optimum</span></div>
+        <div class="links"><a href="assets/source-references/source-08-optimization-landscape-page.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-09-3d-code-data 三维参数曲线数据代码截图  source-reference source-reference 3d example data code" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-09-3d-code-data.png"><img src="assets/source-references/source-09-3d-code-data.png" alt="三维参数曲线数据代码截图"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-09-3d-code-data</code></div>
+        <h3>三维参数曲线数据代码截图</h3>
+        <p></p>
+        <div class="tags"><span>3D example data code</span></div>
+        <div class="links"><a href="assets/source-references/source-09-3d-code-data.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-10-3d-code-render 三维散点绘制代码截图  source-reference source-reference 3d rendering code" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-10-3d-code-render.png"><img src="assets/source-references/source-10-3d-code-render.png" alt="三维散点绘制代码截图"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-10-3d-code-render</code></div>
+        <h3>三维散点绘制代码截图</h3>
+        <p></p>
+        <div class="tags"><span>3D rendering code</span></div>
+        <div class="links"><a href="assets/source-references/source-10-3d-code-render.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="source-11-3d-parametric-result 三维参数曲线结果截图  source-reference source-reference 3d parametric plot output" data-collection="source-reference" data-status="source-reference">
+      <a class="image-link" href="assets/source-references/source-11-3d-parametric-result.png"><img src="assets/source-references/source-11-3d-parametric-result.png" alt="三维参数曲线结果截图"></a>
+      <div class="body">
+        <div class="meta"><b>来源参考</b><code>source-11-3d-parametric-result</code></div>
+        <h3>三维参数曲线结果截图</h3>
+        <p></p>
+        <div class="tags"><span>3D parametric plot output</span></div>
+        <div class="links"><a href="assets/source-references/source-11-3d-parametric-result.png">PNG</a></div>
+      </div>
+    </article></div>
+  </details>
+
+  <details>
+    <summary>9 张原图—复刻图 QA 对比板</summary>
+    <p>用于检查布局、几何、标注和可见关系，不属于可直接替换数据的模板。</p>
+    <div class="grid"><article class="card auxiliary" data-search="qa-01-probability-field 概率场：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-01-probability-field.png"><img src="assets/qa-comparisons/compare-01-probability-field.png" alt="概率场：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-01-probability-field</code></div>
+        <h3>概率场：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-01-probability-field.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-02-monte-carlo-kde monte carlo kde：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-02-monte-carlo-kde.png"><img src="assets/qa-comparisons/compare-02-monte-carlo-kde.png" alt="Monte Carlo KDE：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-02-monte-carlo-kde</code></div>
+        <h3>Monte Carlo KDE：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-02-monte-carlo-kde.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-03-truncated-optimization 截尾分布与寻优：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-03-truncated-optimization.png"><img src="assets/qa-comparisons/compare-03-truncated-optimization.png" alt="截尾分布与寻优：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-03-truncated-optimization</code></div>
+        <h3>截尾分布与寻优：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-03-truncated-optimization.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-04-sensitivity-distance 灵敏度与距离：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-04-sensitivity-distance.png"><img src="assets/qa-comparisons/compare-04-sensitivity-distance.png" alt="灵敏度与距离：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-04-sensitivity-distance</code></div>
+        <h3>灵敏度与距离：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-04-sensitivity-distance.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-05-correlation-density 相关性与密度：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-05-correlation-density.png"><img src="assets/qa-comparisons/compare-05-correlation-density.png" alt="相关性与密度：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-05-correlation-density</code></div>
+        <h3>相关性与密度：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-05-correlation-density.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-06-convergence-bootstrap 收敛与 bootstrap：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-06-convergence-bootstrap.png"><img src="assets/qa-comparisons/compare-06-convergence-bootstrap.png" alt="收敛与 Bootstrap：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-06-convergence-bootstrap</code></div>
+        <h3>收敛与 Bootstrap：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-06-convergence-bootstrap.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-07-regression-radar 回归诊断与雷达：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-07-regression-radar.png"><img src="assets/qa-comparisons/compare-07-regression-radar.png" alt="回归诊断与雷达：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-07-regression-radar</code></div>
+        <h3>回归诊断与雷达：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-07-regression-radar.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-08-optimization-landscape 二维优化景观：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-08-optimization-landscape.png"><img src="assets/qa-comparisons/compare-08-optimization-landscape.png" alt="二维优化景观：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-08-optimization-landscape</code></div>
+        <h3>二维优化景观：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-08-optimization-landscape.png">PNG</a></div>
+      </div>
+    </article>
+<article class="card auxiliary" data-search="qa-09-3d-parametric 三维参数曲线：参考图与 python 复现  qa-only qa-only" data-collection="qa-only" data-status="qa-only">
+      <a class="image-link" href="assets/qa-comparisons/compare-09-3d-parametric.png"><img src="assets/qa-comparisons/compare-09-3d-parametric.png" alt="三维参数曲线：参考图与 Python 复现"></a>
+      <div class="body">
+        <div class="meta"><b>QA 对比</b><code>qa-09-3d-parametric</code></div>
+        <h3>三维参数曲线：参考图与 Python 复现</h3>
+        <p></p>
+        <div class="tags"></div>
+        <div class="links"><a href="assets/qa-comparisons/compare-09-3d-parametric.png">PNG</a></div>
+      </div>
+    </article></div>
+  </details>
+
+  <footer>开源 Codex Skill · Apache-2.0 · 与期刊出版方及竞赛组织方无隶属关系</footer>
+</main>
+<script>
+  const query = document.getElementById('query');
+  const collection = document.getElementById('collection');
+  const status = document.getElementById('status');
+  const cards = [...document.querySelectorAll('#formal-grid .card')];
+  function applyFilters() {
+    const q = query.value.trim().toLowerCase();
+    for (const card of cards) {
+      const textMatch = !q || card.dataset.search.includes(q);
+      const collectionMatch = !collection.value || card.dataset.collection === collection.value;
+      const statusMatch = !status.value || card.dataset.status === status.value;
+      card.hidden = !(textMatch && collectionMatch && statusMatch);
+    }
+  }
+  query.addEventListener('input', applyFilters);
+  collection.addEventListener('change', applyFilters);
+  status.addEventListener('change', applyFilters);
+</script>
+</body>
+</html>

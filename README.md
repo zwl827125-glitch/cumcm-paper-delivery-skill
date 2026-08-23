@@ -1,75 +1,147 @@
-# CUMCM 国赛论文交付 Skill
+# CUMCM 从零建模与论文交付 Skill 完整发行版
 
-这是一套面向全国大学生数学建模竞赛（CUMCM、高教社杯）的中文总控 Skill。它把赛题、附件与原始数据推进为可快速阅卷、可复算、可追溯的正式论文和支撑材料，也可用于审查、修订已有竞赛论文。
+面向全国大学生数学建模竞赛（CUMCM、高教社杯）的中文全流程 Skill：从读题、数据审计、创新模型、代码复算、图证设计到 Word 论文、支撑材料、AI 合规和终审评分。
 
-## 主要能力
+本仓库采用“创新优先、图证优先、证据可追溯”的竞赛快速阅卷策略，同时保留公式、数值、代码和工程验证的复算链。
 
-- 核验竞赛规则、模板、匿名要求和 AI 使用边界。
-- 拆解赛题，建立问题依赖图、数据合同与模型合同。
-- 组织数据审计、基线模型、主模型、回退模型和工程验证。
-- 统一代码、公式、正文数值、图表与支撑材料的结果口径。
-- 生成以快速阅卷为导向的中文竞赛论文，控制术语密度和结论边界。
-- 制作准确、鲜明且可打印的科研图，默认白底表格、无跨列合并。
-- 完成多角色终审、公式复核、DOCX/PDF 渲染检查与交付审计。
+## 这次公开了什么
 
-## 安装
+| 组件 | 作用 | 是否内置 |
+|---|---|---:|
+| `cumcm-paper-delivery` | 从零建模与中文论文交付总控 | 是 |
+| `cumcm-competition-engine` | 国赛规则、阶段合同、结果冻结和终审 | 是 |
+| `math-modeling` | CUMCM 算法库、角色路由和国赛论文资源 | 是 |
+| `cumcm-modeler` / `cumcm-solver` / `cumcm-writer` | 建模手、编程手、论文手三个专业角色 | 是 |
+| `paper-search` | OpenAlex 等建模文献检索 | 是 |
+| `modeling-research-figure-skill` | 数模竞赛绘图、重画和视觉 QA | 是 |
+| `nature-figure` / `nature-shared` | 多面板证据架构和期刊级科研绘图 | 是 |
+| `nature-academic-search` | 多源文献检索与引文核对 | 是 |
+| CUMCM 优秀论文 | 23 篇，只含国赛，不含 64 篇 MCM/ICM | 是 |
+| 本地 Office 桥 | 直接调用 Windows Word/Excel | 是 |
 
-将本仓库克隆或下载到 Codex 的个人 Skills 目录，并确保最终目录名为 `cumcm-paper-delivery`：
+原来 1.2 GB 的大包主要包含训练项目、重复数据、缓存、字体、压缩包和第三方目录。本仓库只发布建模交付真正需要的可分发组件，因此体积明显更小，但主流程更完整。
 
-```text
-~/.codex/skills/cumcm-paper-delivery/
-├── SKILL.md
-├── agents/
-├── references/
-└── scripts/
-```
+## 不要求必须使用 Codex
 
-重新启动 Codex 或刷新 Skills 后即可使用。
+任何能够读取 `SKILL.md`、访问文件和执行命令的 Agent 都可以使用本仓库。推荐顺序：
 
-## 使用方式
+1. 让 Agent 读取根目录 `SKILL.md`。
+2. 按阶段读取 `dependencies/` 中对应 Skill。
+3. Windows 用户可直接调用本地 Microsoft Word 和 Excel。
+4. 无 Office 环境可使用 Pandoc、LibreOffice 和 `requirements.txt` 中的 Python 库。
 
-可以直接在任务中写：
+Codex 的文档、PDF、表格插件是可选加速器，不是运行前提。
 
-```text
-请使用 $cumcm-paper-delivery，从赛题和附件开始完成 CUMCM 建模、求解、论文、图表、复核和最终交付。
-```
+## Windows 本地 Office
 
-也可以指定工作模式：
-
-- 从零建模：从规则核验、题目拆解和数据审计开始。
-- 修改已有论文：先冻结公式、数值与模板基线，再进行定向修改。
-- 终审评分：只复核和报告，不在未授权时改写正文或重跑实验。
-
-## 依赖检查
-
-本 Skill 会按阶段调用其他本地 Skills。运行下面的脚本可检查依赖是否齐全：
+检查 Word、Excel、Pandoc 和 LibreOffice：
 
 ```powershell
-python scripts/check_dependencies.py
+powershell -ExecutionPolicy Bypass -File .\scripts\office_bridge.ps1 -Action probe
 ```
 
-依赖分为“必需、推荐、条件启用”三类，完整说明见 `references/dependency-map.md` 和 `references/dependency-manifest.json`。
+检查 Word 页数、公式、表格和图片数量：
 
-## 设计原则
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\office_bridge.ps1 `
+  -Action inspect-word -InputPath .\论文.docx
+```
 
-- 创新来自机制、约束、数据利用、不确定性和工程闭环，不靠堆叠算法名词。
-- 每项核心结论必须能回溯到数据、代码、公式、图表、验证或文献。
-- 数值图必须由准确数据生成，不用无法复算的 AI 截图冒充实验结果。
-- 正文不暴露 Agent 推理、内部审稿规则或制作流程。
-- 优先保证竞赛快速阅卷体验，同时保留必要的技术严谨性。
+更新域、目录和分页：
 
-## 目录说明
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\office_bridge.ps1 `
+  -Action refresh-word -InputPath .\论文.docx
+```
 
-- `SKILL.md`：总控流程与触发说明。
-- `agents/openai.yaml`：Codex 界面元数据。
-- `references/from-zero-workflow.md`：从零建模全流程。
-- `references/quality-gates.md`：交付质量门槛。
-- `references/review-and-scoring.md`：多角色审稿与评分框架。
-- `references/figure-style.md`：图表与版式规范。
-- `references/dependency-map.md`：依赖关系与调用策略。
-- `scripts/check_dependencies.py`：本地依赖检查脚本。
+生成仅供视觉 QA 的 PDF：
 
-## 使用提醒
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\office_bridge.ps1 `
+  -Action word-to-pdf -InputPath .\论文.docx -OutputPath .\qa\论文预览.pdf
+```
 
-本 Skill 不承诺奖项结果，也不能替代参赛队对官方规则、数据来源、模型假设和最终提交内容的责任。比赛期间应以当届官方文件为准，并如实遵守 AI 工具使用与披露要求。
+强制重算 Excel：
 
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\office_bridge.ps1 `
+  -Action excel-recalc -InputPath .\支撑材料\结果.xlsx
+```
+
+脚本通过 COM 调用用户本机安装的 Office，打开文档时强制禁用宏自动执行。
+
+## Markdown 生成 DOCX
+
+安装 Pandoc 后，可用参考模板生成 DOCX，并自动交给本地 Word 更新：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\build_paper.ps1 `
+  -SourceMarkdown .\paper.md `
+  -OutputDocx .\论文.docx `
+  -ReferenceDocx .\dependencies\cumcm-writer\references\论文模板.docx
+```
+
+Python 环境：
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/check_dependencies.py
+python scripts/verify_release.py
+```
+
+## 安装到 Agent 的 Skills 目录
+
+Codex 默认安装：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+```
+
+安装到任意兼容 Agent 的 Skills 目录：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -TargetRoot "D:\agent\skills"
+```
+
+跨平台：
+
+```bash
+python install.py --target /path/to/agent/skills
+```
+
+安装器只复制本仓库明确列出的 Skill，不删除目标目录里的其他内容。更新已有版本时显式加 `-Force` 或 `--force`。
+
+## 23 篇国赛论文
+
+位置：
+
+`dependencies/math-modeling/references/Outstanding Thesis/CUMCM/`
+
+- 历史精选：11 篇
+- 2022–2024 中国大学生在线官方正文精选：12 篇
+- MCM/ICM：0 篇
+
+索引、官方页面和使用边界见：
+
+`dependencies/math-modeling/references/Outstanding Thesis/README.md`
+
+SHA‑256 见 `PAPER_CHECKSUMS.sha256`。
+
+## 授权边界
+
+仓库原创集成代码默认按 Apache‑2.0 发布，但第三方组件和论文保留各自权利与来源。23 篇论文的整理与公开再分发由仓库维护者确认已获同学整理者授权；论文著作权仍归原作者或相关权利人。
+
+以下原始第三方目录没有复制进仓库：
+
+- `math-modeling/tools/docx`
+- `math-modeling/tools/pdf`
+- `math-modeling/tools/xlsx`
+- `nature-figure/assets/figures4papers` 的第三方脚本与预览图
+
+前三者仍标记为 Proprietary；删除本地许可证文件不会改变其授权属性。公开版使用本仓库自研 Office 桥和开源库路线补齐能力。
+
+完整来源和权利说明见 [RIGHTS_AND_SOURCES.md](RIGHTS_AND_SOURCES.md)。
+
+## 免责声明
+
+本项目不隶属于全国大学生数学建模竞赛组委会、中国大学生在线、Nature Portfolio、OpenAI 或 Anthropic。竞赛期间必须核对当届官方规则和 AI 使用规定；往届论文与模板不构成当届规则。

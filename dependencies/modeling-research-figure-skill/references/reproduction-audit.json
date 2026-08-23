@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-22",
+  "backend": "Python (NumPy, Matplotlib, SciPy)",
+  "formats": ["PNG 300 dpi", "SVG with editable text"],
+  "data_policy": {
+    "formula_exact": "The 3D parametric scatter uses the exact visible reference formula and arrays.",
+    "visual_reproduction": "Figures whose original arrays were unavailable use deterministic example data and do not claim hidden-data identity."
+  },
+  "templates": [
+    {"stem": "math-repro-3d-parametric", "fidelity": "formula-exact", "checks": ["x=linspace(0,10,100)", "y=sin(x)", "z=cos(x)", "c=y*z", "|c|<=0.5"]},
+    {"stem": "math-repro-probability-surface-contour", "fidelity": "visual-reproduction", "checks": ["peak at (0,0)", "P(0,0)=99.98%", "shared surface/contour field"]},
+    {"stem": "math-repro-probability-gradient", "fidelity": "visual-reproduction", "checks": ["active gradients point inward", "gradient and probability colorbars"]},
+    {"stem": "math-repro-monte-carlo-kde", "fidelity": "visual-reproduction", "checks": ["fixed seed", "finite KDE grid", "hit mask agrees with ROI"]},
+    {"stem": "math-repro-truncated-optimization", "fidelity": "visual-reproduction", "checks": ["truncated support", "density integral approximately one", "optimum inside feasible band"]},
+    {"stem": "math-repro-tornado", "fidelity": "visual-reproduction", "checks": ["shared baseline", "low/high direction preserved"]},
+    {"stem": "math-repro-distance-ecdf", "fidelity": "visual-reproduction", "checks": ["ECDF monotone", "ECDF terminates at one"]},
+    {"stem": "math-repro-correlation-importance", "fidelity": "visual-reproduction", "checks": ["correlation matrix symmetric", "diagonal equals one"]},
+    {"stem": "math-repro-hexbin-kde", "fidelity": "visual-reproduction", "checks": ["log-count hexbin", "finite KDE surface", "hit overlay"]},
+    {"stem": "math-repro-convergence", "fidelity": "visual-reproduction", "checks": ["relative error decreases as the grid is refined", "0.5% threshold shown"]},
+    {"stem": "math-repro-bootstrap", "fidelity": "visual-reproduction", "checks": ["fixed seed", "reference values lie within bootstrap ranges"]},
+    {"stem": "math-repro-regression-fit", "fidelity": "visual-reproduction", "checks": ["nonlinear fits", "95% confidence bands contain fitted curves"]},
+    {"stem": "math-repro-regression-length-density", "fidelity": "visual-reproduction", "checks": ["length-response monotonicity", "finite positive joint density"]},
+    {"stem": "math-repro-residual-qq", "fidelity": "visual-reproduction", "checks": ["residual count preserved", "Q-Q reference line"]},
+    {"stem": "math-repro-model-radar", "fidelity": "visual-reproduction", "checks": ["six direction-normalized metrics", "scores bounded in [0,1]"]},
+    {"stem": "math-repro-optimization-landscape", "fidelity": "visual-reproduction", "checks": ["grid argmax near (105.4,165.8)", "feasible bounds preserved"]}
+  ]
+}

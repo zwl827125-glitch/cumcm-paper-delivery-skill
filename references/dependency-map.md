@@ -1,42 +1,48 @@
-# 技能依赖与调用记录
+# 技能依赖与公开发行边界
 
-## E4 项目实际调用
+## 仓库内置技能
 
-本次“确定山体海拔高度”论文的最终生产与修订阶段实际读取或调用了以下技能：
-
-| 作用 | 技能 | 使用内容 |
+| 阶段 | 技能 | 主要能力 |
 |---|---|---|
-| 国赛总控 | `cumcm-competition-engine` | CUMCM 任务边界、论文与支撑材料合同、合规和终审 |
-| 代码与复算 | `编程手` | 求解入口、结果冻结、数值复算、可重复性 |
-| 中文论文 | `论文手` | 竞赛论文结构、摘要、正文和快速阅卷表达 |
-| 科研绘图 | `nature-figure` | Python 图形设计、导出和图件 QA |
-| Word 处理 | `docx` | DOCX、Office Math、图表和格式修改 |
-| 文档终检 | `documents:documents` | 渲染后检查 Word 页面布局 |
-| PDF 操作 | `pdf` | PDF 导出与基础检查 |
-| PDF 终检 | `pdf:pdf` | Poppler 渲染、逐页视觉 QA |
+| 全程总控 | `cumcm-competition-engine` | CUMCM 规则、阶段合同、结果冻结、复核和交付审计 |
+| 算法底座 | `math-modeling` | CUMCM 算法索引、角色路由与 23 篇国赛论文资源 |
+| 题目分析 | `cumcm-modeler`（建模手） | 问题 DAG、假设、变量、模型合同与创新设计 |
+| 代码复算 | `cumcm-solver`（编程手） | 数据审计、求解代码、独立复算、结果冻结与可视化 |
+| 中文论文 | `cumcm-writer`（论文手） | 国赛论文结构、快速阅卷表达、公式和版式检查 |
+| 文献检索 | `paper-search` | OpenAlex 与检索服务交叉验证建模文献 |
+| 竞赛绘图 | `modeling-research-figure-skill` | CUMCM 数据图、流程图、证据图和视觉 QA |
+| 高阶绘图 | `nature-figure` + `nature-shared` | 多面板证据架构、Python/R 绘图、出版级导出和 QA |
+| 深度文献 | `nature-academic-search` | 多数据库检索、引文核对、去重和引用文件管理 |
 
-最终版本没有使用 `imagegen` 生成数值截图，也没有使用 `nature-writing`、`nature-polishing` 或期刊投稿类技能改写论文。
+## 可互换的文件后端
 
-## 从零建模新增依赖
+本公开包不绑定 Codex。运行时按当前环境选择一条可用路线：
 
-| 阶段 | 技能 | 新增能力 |
+| 文件类型 | 依赖 | 用途 |
 |---|---|---|
-| 全程总控 | `math-modeling` | 算法索引、优秀论文库以及文档工具资源，不接管国赛规则 |
-| 题目分析 | `建模手` | 问题 DAG、模型合同、假设、变量、算法和术语 |
-| 数据入口 | `xlsx` | 读取、清洗、审计 Excel/CSV/TSV 数据及公式错误 |
-| 复杂工作簿 | `spreadsheets:Spreadsheets` | 多表结构分析、工作簿级检查和图表输出，按需使用 |
-| 文献入口 | `paper-search` | OpenAlex 与 AnySearch 交叉验证式建模文献检索 |
-| 深度文献 | `nature-academic-search` | 多数据库检索、引文核对、去重与引用文件管理，按需使用 |
-| 原始题目 | `pdf`、`pdf:pdf`、`docx` | 读取赛题、附件、模板并完成视觉核验 |
-| 多角色终审 | `cumcm-competition-engine` 内置三席 + 本 Skill 复核合同 | 建模、复现、评阅和恶意攻击式问题闭环 |
+| Word | 本地 Word COM；或 `documents:documents`；或 Pandoc/Python | 创建、修改、更新域、统计公式、渲染和逐页核查 DOCX |
+| PDF | Python PDF 库；或 `pdf:pdf`；或 LibreOffice/Poppler | 读取、OCR、渲染和核查赛题、规定、模板及参考论文 |
+| 表格 | 本地 Excel COM；或 `spreadsheets:Spreadsheets`；或 openpyxl/pandas | 清洗、审计和生成 XLSX/CSV，强制重算公式 |
 
-## 明确不纳入运行主链
+Windows 本地 Office 入口为 `scripts/office_bridge.ps1`；Markdown 到 DOCX 的入口为 `scripts/build_paper.ps1`。Codex 插件只是可选加速器，不是安装前提。
 
-- `nature-writing`、`nature-polishing`：期刊叙事和英文风格可能覆盖国赛中文结构。
-- `nature-citation`：严格 CNS 引文范围不适合作为国赛通用参考文献入口。
-- `nature-reviewer`：Nature 审稿标准不等于 CUMCM 评分标准。
-- `imagegen`：不用于生成无法复算的数值图；概念插图只有用户明确要求时才单独使用。
-- `presentations:Presentations`、`nature-paper2ppt`：路演/PPT 不属于电子论文主链。
+## 未再分发内容
 
-“加入”指将这些技能写入总控路由和依赖清单。运行时仍按阶段最小加载，避免上下文拥挤或规范冲突。
+- `math-modeling/tools/docx`
+- `math-modeling/tools/pdf`
+- `math-modeling/tools/xlsx`
 
+上述三个旧工具目录的许可证明确禁止复制和向第三方分发。公开版仅替换调用入口，不复制其代码、提示词、脚本或资产。
+
+`nature-figure/assets/figures4papers` 也不随包发布，因为上游未提供明确的再分发许可证。公开版保留来源链接和原创复刻原则，不保留其脚本与预览图。
+
+## 默认路由
+
+1. `cumcm-paper-delivery` 接收用户任务并区分赛题、模板与用户指令。
+2. `cumcm-competition-engine` 决定阶段、规则和交付门禁。
+3. 建模、求解、写作分别加载 `cumcm-modeler`、`cumcm-solver`、`cumcm-writer`。
+4. 竞赛图优先使用 `modeling-research-figure-skill`；需要多面板期刊级证据架构时调用 `nature-figure`。
+5. 文档、PDF 和表格文件调用 Codex 插件能力。
+6. 全程以真实数据、可运行代码、结果账本和最终渲染稿为证据源。
+
+依赖清单的机器可读版本见 [dependency-manifest.json](dependency-manifest.json)。

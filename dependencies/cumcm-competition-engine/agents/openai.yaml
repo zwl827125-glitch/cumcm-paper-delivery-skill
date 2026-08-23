@@ -1,0 +1,6 @@
+interface:
+  display_name: "CUMCM 国赛作战审计引擎"
+  short_description: "CUMCM 国赛全流程作战、冻结、复核与合规审计"
+  default_prompt: "使用 $cumcm-competition-engine 按证据链推进这个 CUMCM 项目的建模、验证、复核与提交审计。"
+policy:
+  allow_implicit_invocation: true

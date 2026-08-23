@@ -1,0 +1,31 @@
+name: Validate release bundle
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify release structure and paper checksums
+        run: python scripts/verify_release.py
+
+      - name: Run CUMCM engine unit tests
+        run: python dependencies/cumcm-competition-engine/tests/test_cumcm_engine.py
+
+      - name: Verify figure skill checksums
+        run: python dependencies/modeling-research-figure-skill/scripts/verify_checksums.py
+
+      - name: Compile Python entry points
+        env:
+          PYTHONPYCACHEPREFIX: /tmp/cumcm-pycache
+        run: |
+          python -m py_compile install.py scripts/check_dependencies.py scripts/verify_release.py
+          python -m py_compile dependencies/cumcm-competition-engine/scripts/cumcm_engine.py

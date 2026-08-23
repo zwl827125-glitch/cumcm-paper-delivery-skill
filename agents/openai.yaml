@@ -2,4 +2,3 @@ interface:
   display_name: "CUMCM 从零建模与论文交付"
   short_description: "从赛题和原始数据开始完成建模、复算、绘图、论文与合规交付"
   default_prompt: "请使用 $cumcm-paper-delivery 从赛题和原始数据开始，完成这道 CUMCM 题的建模、求解、验证、论文与最终交付。"
-

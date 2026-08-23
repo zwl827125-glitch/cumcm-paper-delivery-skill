@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/Yuan1z0825/nature-skills",
+  "revision": "a6e6f3456f2065eb555afe8ed2c28637f3cd4e1b",
+  "license": "Apache-2.0",
+  "assets": [
+    {"local": "assets/previews/chart-atlas/research-atlas-bars.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-01-bar-charts.png", "sha256": "4A0E3040BBDBFE5EC48B66515F719F83AD7304FADB2E56432CD3E8F7CCBABD65"},
+    {"local": "assets/previews/chart-atlas/research-atlas-lines.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-02-line-trends.png", "sha256": "9A8189149180A68679738BC4BE152EE40B17D71261D71B3759D315A7169DA0D9"},
+    {"local": "assets/previews/chart-atlas/research-atlas-heatmaps.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-03-heatmaps.png", "sha256": "40DD7C7C14C45B45CC22EE23E19F2DC1901F38B26A1FB4B0F26A30DBD10C0423"},
+    {"local": "assets/previews/chart-atlas/research-atlas-scatter.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-04-scatter-bubble.png", "sha256": "1BBFBC38A3F246E4FD7C59B9ED1003DDBC7280EE160B7C38ABF8D410B27FE6F8"},
+    {"local": "assets/previews/chart-atlas/research-atlas-radar.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-05-radar-polar.png", "sha256": "E7FA7D98CD4F5263F5550D7AC8824E60071C20B2927AEF52AC6D18D62FD29FFA"},
+    {"local": "assets/previews/chart-atlas/research-atlas-distributions.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-06-distributions.png", "sha256": "A1FE533D07DAE36D11C997577DED61ADB16BF5D4DD5C0DEE2FF92AE570F0F01E"},
+    {"local": "assets/previews/chart-atlas/research-atlas-forest.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-07-forest-interval.png", "sha256": "DC61A5257EAE4748348C72C51F2E70E59979C6892F52DADF7BB4BA6F8B98B00B"},
+    {"local": "assets/previews/chart-atlas/research-atlas-area.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-08-area-stacked.png", "sha256": "350C25E427D945DEE5FD98316EB6EBE307304B9D187D954A88C05852D664A60B"},
+    {"local": "assets/previews/chart-atlas/research-atlas-images.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-09-image-plates.png", "sha256": "BBC8C0B8708D42465E57CB7C56B4D2ECFBAA63340A5A6DFEFBCB51189CD1A995"},
+    {"local": "assets/previews/chart-atlas/research-atlas-network.png", "upstream": "skills/nature-figure/assets/chart-atlas/atlas-10-network-matrix.png", "sha256": "CD384ABE10AA86BD310C1288A42F33735CB555C267BDDAE1ECD262905A7A1DE5"},
+    {"local": "assets/previews/multi-panel/research-blueprint-material.png", "upstream": "skills/nature-figure/assets/gallery/fig1-material-mechanism-rich.png", "sha256": "2E0706FAE3256E1DE2388F8605F35B9B6AC23CFC397161A952F34CC5FA2F2192"},
+    {"local": "assets/previews/multi-panel/research-blueprint-imaging.png", "upstream": "skills/nature-figure/assets/gallery/fig2-spatial-imaging-rich.png", "sha256": "90081B3F778B9EDE2DBA41C60B6ABF0C28A239060C69428344539529CD7F3257"},
+    {"local": "assets/previews/multi-panel/research-blueprint-clinical.png", "upstream": "skills/nature-figure/assets/gallery/fig3-in-vivo-efficacy-rich.png", "sha256": "25D6FC50F5808104A7CB19F4795CEA4229FBC6159FA7509F716A94F7C160A033"},
+    {"local": "assets/previews/multi-panel/research-blueprint-single-cell.png", "upstream": "skills/nature-figure/assets/gallery/fig4-single-cell-systems-rich.png", "sha256": "999EDB06B942F988A51B11F947845E42E4C346B2F9E5D5A6425DEF9E43BB69D1"},
+    {"local": "assets/previews/multi-panel/research-blueprint-validation.png", "upstream": "skills/nature-figure/assets/gallery/fig5-validation-perturbation-rich.png", "sha256": "245AD31F97B2054628987444E44D6A007F352F65AE6254189F5ED8BA9B0301C6"}
+  ]
+}
